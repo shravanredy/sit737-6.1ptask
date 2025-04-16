@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yourapp-deployment
+spec:
+  replicas: 3  # Number of replicas for the deployment
+  selector:
+    matchLabels:
+      app: yourapp
+  template:
+    metadata:
+      labels:
+        app: yourapp
+    spec:
+      containers:
+        - name: yourapp
+          image: test-image/yourapp:1.0  
+          ports:
+            - containerPort: 8080  # Expose the port the app listens on

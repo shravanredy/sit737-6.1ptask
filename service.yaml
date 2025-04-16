@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yourapp-service
+spec:
+  selector:
+    app: yourapp  # Selects the pods with this label
+  ports:
+    - protocol: TCP
+      port: 80        # Expose the service on port 80
+      targetPort: 8080  # Forward traffic to port 8080 on the containers
+  type: LoadBalancer
